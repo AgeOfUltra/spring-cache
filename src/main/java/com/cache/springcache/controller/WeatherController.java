@@ -48,10 +48,5 @@ public class WeatherController {
     public ResponseEntity<String> deleteCity(@RequestParam String city){
         return ResponseEntity.ok(service.deleteCity(city));
     }
-
-    @GetMapping("/health")
-    public String checkHealth(){
-        return "Health";
-    }
 }
 
