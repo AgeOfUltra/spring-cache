@@ -6,11 +6,12 @@ import com.cache.springcache.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/weather")
+@RequestMapping("/api/weather")
 public class WeatherController {
     @Autowired
     private WeatherService service;
@@ -46,6 +47,11 @@ public class WeatherController {
     @DeleteMapping("/deleteCity")
     public ResponseEntity<String> deleteCity(@RequestParam String city){
         return ResponseEntity.ok(service.deleteCity(city));
+    }
+
+    @GetMapping("/health")
+    public String checkHealth(){
+        return "Health";
     }
 }
 
